@@ -109,3 +109,12 @@ bun --hot ./index.ts
 ```
 
 For more information, read the Bun API docs in `node_modules/bun-types/docs/**.md`.
+
+## Dependencies
+
+When a third-party package is genuinely needed (i.e. not covered by a built-in Bun API above):
+
+- Install the latest version — `bun add <pkg>` (not `bun add <pkg>@<old-version>`).
+- Prefer the most maintainable, easy-to-integrate option — actively maintained, well-documented, minimal dependency footprint.
+- Prefer the option with the highest weekly downloads on npm among reasonable alternatives.
+- Check it for known vulnerabilities before adding it (e.g. `bun pm audit`, npm advisory database, or GitHub Advisory Database) and avoid packages with open, unpatched high/critical advisories.
