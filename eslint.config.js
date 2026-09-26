@@ -1,4 +1,5 @@
 import js from "@eslint/js"
+import eslintConfigPrettier from "eslint-config-prettier"
 import simpleImportSort from "eslint-plugin-simple-import-sort"
 import unusedImports from "eslint-plugin-unused-imports"
 import globals from "globals"
@@ -22,8 +23,6 @@ export default tseslint.config(
       "unused-imports": unusedImports,
     },
     rules: {
-      // No semicolons
-      semi: ["error", "never"],
       "@typescript-eslint/no-unused-vars": "off",
 
       // No unused variables/imports (autofixable)
@@ -50,4 +49,7 @@ export default tseslint.config(
       ],
     },
   },
+  // Must stay last: turns off ESLint formatting rules (incl. `semi`) that
+  // would conflict with Prettier, which now owns all formatting/semicolons.
+  eslintConfigPrettier,
 )
